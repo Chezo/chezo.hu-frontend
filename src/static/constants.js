@@ -27,7 +27,7 @@ const socials = [CV, facebook, linkedIn, gitHub, stackoverflow]
 
 
 const java = new Skill('Java', '70', 'Mid')
-const csharp = new Skill('C#', '50', 'Mid')
+const csharp = new Skill('C#', '35', 'Mid')
 const scala = new Skill('Scala', '60', 'Junior')
 const kotlin = new Skill('Kotlin', '60', 'Junior')
 const programmingLevels = [java, csharp, scala, kotlin]

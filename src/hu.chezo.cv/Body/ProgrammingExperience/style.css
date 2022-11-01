@@ -1,0 +1,51 @@
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: rgba(207, 206, 206, .8)
+}
+
+a:hover {
+    text-decoration: underline;
+    color: rgba(207, 206, 206, 1)
+}
+
+.progExperienceContainer {
+    margin-bottom: 20px;
+}
+
+
+.companyContainer {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.companyData {
+    display: flex;
+    gap: 1rem
+}
+
+.workDate {
+    color: rgba(207, 206, 206, .5)
+}
+
+@media only screen and (max-width: 540px) {
+
+    .companyContainer {
+        flex-direction: column;
+        gap: 0rem;
+        margin-bottom: .2rem;
+    }
+
+    .progExperienceContainer {
+        margin-bottom: 30px;
+    }
+
+    b {
+        padding: 0;
+    }
+
+    .companyData>* {
+        margin: 0;
+        padding: 0;
+    }
+}

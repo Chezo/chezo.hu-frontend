@@ -1,0 +1,19 @@
+.skillText {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.skillBar {
+    background-color: grey;
+    width: 100%;
+    height: 20px;
+}
+
+.skill {
+    margin-bottom: 1rem;
+}
+
+.linkedIn {
+    margin-top: 2rem;
+}

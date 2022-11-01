@@ -1,0 +1,100 @@
+.modal-title {
+    text-align: center;
+}
+
+.modal-content {
+    min-width: 320px;
+    color: white;
+    background-color: #282c34;
+}
+
+.modal-body {
+    color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.btn-close {
+    color: white;
+}
+
+textarea {
+    color: white;
+    width: 100%;
+}
+
+
+.line-break {
+    width: 100%;
+}
+
+.name {
+    height: 3rem;
+    max-width: 15rem;
+    margin-right: 1%;
+}
+
+.email {
+    height: 3rem;
+    max-width: 30rem;
+}
+
+.textArea {
+    background-color: #2D3543;
+    color: white;
+    height: 20rem;
+    width: 100%;
+}
+
+.buttonContainer {
+    position: relative;
+    text-align: center;
+}
+
+input[type="text"],
+[type="email"],
+[type="textArea"] {
+    background-color: #2D3543;
+    color: white;
+}
+
+#msgToFill {
+    margin-top: 2rem;
+    font-weight: bold;
+    color: rgb(255, 41, 41);
+}
+
+.mailToMe:hover {
+    -webkit-box-shadow: 0px 0px 13px 0px rgb(51, 122, 183);
+    -moz-box-shadow: 0px 0px 13px 0px rgba(51, 122, 183, 1);
+    box-shadow: 0px 0px 13px 0px rgba(51, 122, 183, 1);
+    opacity: 1;
+}
+
+.form-control:focus {
+    background-color: #2D3543;
+    color: white;
+
+}
+
+.shareText {
+    margin-bottom: 1vw;
+    text-align: center;
+}
+
+@media only screen and (max-width: 992px) {
+    .contactForm>.flexContainer {
+        display: block;
+    }
+
+    .name {
+        min-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .modal-body {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+}

@@ -1,0 +1,22 @@
+.theme {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: rgba(207, 206, 206, 1);
+}
+
+.schoolDate {
+    margin-left: 0.5rem;
+    color: rgba(207, 206, 206, .5)
+}
+
+.school {
+    margin-bottom: 2rem;
+}
+
+.theme::before {
+    content: '🎓'
+}
+
+.schoolName {
+    padding-left: 1.5rem;
+}

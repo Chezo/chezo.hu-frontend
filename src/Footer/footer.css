@@ -1,0 +1,15 @@
+
+.footer {
+    bottom: 0;
+    color: white;
+    background-color: gray;
+    margin-top: 100px;
+}
+
+.lastRow {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+
+}

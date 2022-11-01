@@ -1,2 +1,2 @@
-# chezo.hu-frontend
-My personal website's frontend layer
+# Chezo.hu
+My own website.

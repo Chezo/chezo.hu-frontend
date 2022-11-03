@@ -56,11 +56,11 @@ function ContactForm() {
     };
 
 
-    return (
+    return (    
         <>
-            <div className='mailToMe button' onClick={handleShow}>
+            <button className='mailToMe button' onClick={handleShow}>
                 Contact me
-            </div>
+            </button>
 
             <Modal
                 show={show}
@@ -89,7 +89,7 @@ function ContactForm() {
                             |&gt;&gt; Please fill the input boxes first &lt;&lt;|
                         </div>
                         <Button disabled onClick={handleSubmit} variant="primary" type="submit" className='center modalSubmit'>
-                            Submit
+                            Send
                         </Button>
 
                     </Form>

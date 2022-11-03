@@ -18,15 +18,16 @@ export default class Dog extends React.Component {
 class DemoCarousel extends React.Component {
     render() {
         return (
-            <Carousel autoPlay={true} infiniteLoop={true} showStatus={false} showThumbs={false} renderIndicator={false}>
+            <a className='carouselIMGContainer' href='https://www.instagram.com/masnikakutyus/' target='_blank' rel="noreferrer" > <Carousel autoPlay={true} infiniteLoop={true} showStatus={false} showThumbs={false} renderIndicator={false}>
                 {
                     masni.map((dog, index) => (
-                        <div key={index} onClick={() => window.open('https://www.instagram.com/masnikakutyus/', '_blank')}>
-                            <img src={dog.img} alt={dog.description} />
-                        </div>
+
+                        <img src={dog.img} key={index} alt={dog.description} />
+
                     ))
                 }
             </Carousel >
+            </a >
         );
     }
 };

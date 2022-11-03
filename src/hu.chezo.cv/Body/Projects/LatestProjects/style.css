@@ -19,25 +19,36 @@
     margin-top: 1rem;
 }
 
+.bigprojectcontainer {
+    position: relative;
+    height: 70px;
+}
+
+.bigprojectcontainer2 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
 
 .BIGprojectButton {
-    margin: auto auto;
     padding: 0.5rem;
-    width: 20%;
-    position: relative;
-    background-color: rgb(51, 122, 183);
+    width: 200px;
+    padding: 10px;
+    background-color: rgba(51, 122, 183, .6);
     border-radius: 5px;
-    cursor: pointer;
     text-align: center;
-    user-select: none;
     min-width: 145px;
     margin-top: 2rem;
 }
 
 .BIGprojectButton:hover {
-    -webkit-box-shadow: 0px 0px 13px 0px rgb(73, 139, 197);
-    -moz-box-shadow: 0px 0px 13px 0px rgba(73, 139, 197);
-    box-shadow: 0px 0px 13px 0px rgba(73, 139, 197);
+    background-color: rgba(51, 122, 183, 1);
+    -webkit-box-shadow: 0px 0px 13px 0px rgba(73, 139, 197, 1);
+    -moz-box-shadow: 0px 0px 13px 0px rgba(73, 139, 197, 1);
+    box-shadow: 0px 0px 13px 0px rgba(73, 139, 197, 1);
 }
 
 
@@ -47,12 +58,12 @@
     border: 1px solid rgb(0, 0, 0, .5);
     margin-top: 3rem;
     margin-bottom: 3rem;
-}
+}                           
 
-.projectImage {
-    margin-right: 2rem;
-}
 
+.carouselIMGContainer{
+    height: 100%;
+}
 
 .projectTitle {
     color: rgba(207, 206, 206, 1);
@@ -72,20 +83,24 @@
     margin-top: .5rem;
     margin-bottom: 2rem;
 }
+.smallprojectContainer{
+    margin-left: 2rem;
+}
+
 .imagePlaceholder {
     height: 141px;
     width: 250px;
     background-color: rgba(0, 0, 0, 0.37);
 }
-.smallprojectContainer{
-    width: 100%;
-}
-.BIGimagePlaceholder{
+
+
+.BIGimagePlaceholder {
     min-width: 254px;
     min-height: 136px;
     height: 400px;
     background-color: rgba(0, 0, 0, 0.37);
 }
+
 /**/
 @media only screen and (max-width: 705px) {
 
@@ -103,7 +118,7 @@
         display: none;
     }
 
-    .projectImage {
+    .smallprojectContainer {
         margin: auto;
     }
 
@@ -112,5 +127,5 @@
     }
 
 
-   
+
 }

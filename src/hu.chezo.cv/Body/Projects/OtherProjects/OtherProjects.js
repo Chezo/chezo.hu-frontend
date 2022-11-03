@@ -31,7 +31,7 @@ export default function OtherProjects() {
             <OtherProject key={index} others={members.data.repository} />
         )}
 
-        <div className='findOutMore' onClick={() => window.open('https://github.com/Chezo', '_blank', 'rel="noopener", rel="noreferrer"')} > More on git</div>
+        <button className='findOutMore' onClick={() => window.open('https://github.com/Chezo', '_blank')} > More on git</button>
     </div>);
 }
 

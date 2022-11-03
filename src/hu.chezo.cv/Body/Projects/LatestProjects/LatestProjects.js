@@ -34,7 +34,9 @@ function SmallProjectWithIMG() {
 
     return (
         <div className='flexContainer flexContainerSmallIMG'>
-            <div className='projectImage'><img src={project.imageURL.text + "/smallIMG.avif"} alt={"smallIMG.avif"} style={{ width: 250 }} onClick={() => window.open(project.url, '_blank')} /></div>
+            <a href={project.url} target='_blank' className='carouselIMGContainer'>
+                <img src={project.imageURL.text + "/smallIMG.avif"} alt={"smallIMG.avif"} style={{ width: 250 }} />
+            </a>
             <div className='smallprojectContainer'>
                 <div className='projectTitle'><a href={project.url} target="_blank" rel="noopener noreferrer">{JSON.stringify(project.url).substring(project.url.lastIndexOf("/") + 2, project.url.length + 1)}</a></div>
                 <div className='shortDescription'>{project.description}</div>
@@ -65,7 +67,11 @@ function BigProjectWithIMG() {
             <MyCarousel url={project.imageURL.text} projectURL={project.url} imgs={project.images} />
             <div className='BIGstack'><b>Technology Stack: </b>{project.techStack.text}</div>
             <Collaborators collaborators={project.collaborators} />
-            <div className='BIGprojectButton' onClick={() => window.open(project.url, '_blank')}> Find out more </div>
+            <div className='bigprojectcontainer'>
+                <div className='bigprojectcontainer2'>
+                    <button className='BIGprojectButton' onClick={() => window.open(project.url, '_blank')}> Find out more </button>
+                </div>
+            </div>
         </div>
     );
 }

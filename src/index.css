@@ -70,6 +70,9 @@ body {
   background-color: #282c34;
 }
 
+button{
+  border:0px;       
+}
 
 #root {
   width: 100%;

@@ -1,11 +1,15 @@
-
-
 .profilePic {
     border-radius: 50%;
     position: relative;
     top: 50%;
+    bottom:-150px;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
+    -webkit-align-self: center;
+    align-self: center;
 }
+
+
 
 .animatedText {
     max-width: 100%;

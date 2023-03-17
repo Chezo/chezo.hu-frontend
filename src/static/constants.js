@@ -15,7 +15,7 @@ import Masni1 from './images/Masni1.avif'
 import Masni2 from './images/Masni2.avif'
 import Masni3 from './images/Masni3.avif'
 
-const serverIp = 'https://pi.chezo.hu:/';
+const serverIp = 'https://pi.chezo.hu/';
 
 const facebook = new SocialMedia("Facebook", "https://www.facebook.com/ZSNChezo/", fbICON)
 const linkedIn = new SocialMedia("LinkedIn", "https://www.linkedin.com/in/zsoltnagy-chezo/", linkedinICON)

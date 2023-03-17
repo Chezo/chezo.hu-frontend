@@ -12,6 +12,7 @@ import OtherProjects from './Projects/OtherProjects/OtherProjects';
 import Education from './Education/Education';
 import Volunteering from './Volunteering/Volunteering';
 import Dog from './Dog/Dog';
+import Cookie from './Cookie/Cookie';
 
 export default class Body extends React.Component {
     render() {
@@ -19,6 +20,7 @@ export default class Body extends React.Component {
             <Container fluid={true}>
                 <Row>
                     <Col lg={8} xl={8} xxl={8} className='col main'>
+                        <Cookie />
                         <AboutMe />
                         <ProgrammingExperience />
                         <LatestProjects />

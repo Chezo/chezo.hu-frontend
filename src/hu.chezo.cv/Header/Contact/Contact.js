@@ -1,14 +1,14 @@
 import './contact.css'
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { serverIp } from '../../../static/constants'
 import axios from 'axios';
-
+import ReactRecaptcha3 from 'react-google-recaptcha3';
+import Toastr from './Toastr';
 
 export default class Contact extends React.Component {
-
     render() {
         return (
             <div><ContactForm /></div>
@@ -16,47 +16,56 @@ export default class Contact extends React.Component {
     }
 }
 
-
-
 function ContactForm() {
     const [show, setShow] = useState(false);
-
+    const [token, setToken] = useState('');
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const validateEmail = (email) => {
-        return email.match(
-            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{1,}))$/
-        );
-    };
-    const checkInputs = event => {
-        const sendButton = document.querySelector('.modalSubmit');
-        const formName = document.querySelector('#name').value;
-        const formMail = document.querySelector('#email').value;
-        const msg = document.querySelector('#msgToFill');
-        const formMessage = document.querySelector('#message').value;
-        if (formName.length > 5 && formMessage.length > 20 && validateEmail(formMail)) { sendButton.disabled = false; msg.innerHTML = ''; }
-        else { sendButton.disabled = true; msg.innerHTML = '|&gt;&gt; Please fill the input boxes first &lt;&lt;|'; }
+    const handleSubmit = useCallback(async () => {
+        try {
+            // Get the token from the ReCaptcha widget
+            const recaptchaToken = await ReactRecaptcha3.getToken();
+            console.log("ReCaptcha token:", recaptchaToken);
 
-    };
+            // Send a request to verify the token with the ReCaptcha server
+            const verifyResponse = await axios.post(`${serverIp}verify-recaptcha`, {
+                token: recaptchaToken,
+            });
+            console.log("Verify response:", verifyResponse);
 
-    const handleSubmit = event => {
-        event.preventDefault();
-        const formName = document.querySelector('#name').value;
-        const formMail = document.querySelector('#email').value;
-        const formMessage = document.querySelector('#message').value;
-        const param = {
-            name: formName,
-            email: formMail,
-            message: formMessage
+            // Check if the token is valid
+            if (verifyResponse.data) {
+                // Make the request to send the email
+                const formName = document.querySelector('#name').value;
+                const formMail = document.querySelector('#email').value;
+                const formMessage = document.querySelector('#message').value;
+                const param = {
+                    name: formName,
+                    email: formMail,
+                    message: formMessage,
+                };
+
+                const emailResponse = await axios.post(`${serverIp}email`, param);
+                console.log("Email response:", emailResponse);
+                if (emailResponse.status == 200) {
+                    Toastr.call();
+                }
+                handleClose();
+            } else {
+                // Token is invalid, show an error message
+                const msg = document.querySelector('#msgToFill');
+                msg.style.visibility = 'visible';
+                console.log(verifyResponse.data)
+                // msg.innerHTML("Some error happened:");
+            }
+        } catch (error) {
+            console.error(error);
         }
-
-        axios.post(serverIp + 'email', param).then()
-        handleClose();
-    };
+    }, [handleClose]);
 
 
-    return (    
+    return (
         <>
             <button className='mailToMe button' onClick={handleShow}>
                 Contact me
@@ -76,19 +85,19 @@ function ContactForm() {
                     <Form>
                         <Form.Group className='contactForm'>
                             <div className='flexContainer'>
-                                <Form.Control onKeyUp={checkInputs} className='name' type="text" id='name' placeholder="How can I call you" />
-                                <Form.Control onKeyUp={checkInputs} className='email' type="email" id='email' placeholder="Enter email" />
+                                <Form.Control className='name' type="text" id='name' placeholder="How can I call you" />
+                                <Form.Control className='email' type="email" id='email' placeholder="Enter email" />
                             </div>
 
                             <div className='shareText'>
                                 We'll never share your email with anyone else.
                             </div>
-                            <Form.Control onKeyUp={checkInputs} className='textArea' id='message' as="textarea" rows={3} />
+                            <Form.Control className='textArea' id='message' as="textarea" rows={3} />
                         </Form.Group>
-                        <div id='msgToFill' style={{ textAlign: 'center' }}>
+                        <div id='msgToFill' style={{ textAlign: 'center', visibility: 'hidden' }}>
                             |&gt;&gt; Please fill the input boxes first &lt;&lt;|
                         </div>
-                        <Button disabled onClick={handleSubmit} variant="primary" type="submit" className='center modalSubmit'>
+                        <Button onClick={handleSubmit} variant="primary" className='center modalSubmit'>
                             Send
                         </Button>
 

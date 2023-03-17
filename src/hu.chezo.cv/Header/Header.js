@@ -5,7 +5,8 @@ import Col from 'react-bootstrap/Col';
 import { TypeAnimation } from 'react-type-animation';
 import './header.css'
 import Contact from './Contact/Contact';
-import profilePic from '../../static/images/profile.avif'
+import profilePicAVIF from '../../static/images/profile.avif'
+import profilePicWEBP from '../../static/images/profile.webp'
 
 import { socials, sequences } from '../../static/constants'
 
@@ -28,7 +29,11 @@ export default class Header extends React.Component {
 function ProfilePic() {
     return (
         <Col className='profileCol '>
-            <img src={profilePic} alt="Profile" style={{ width: 250, height: 250 }} className='profilePic center' />
+            <picture>
+                <source srcSet={profilePicAVIF} type='image/avif' alt="Profile" />
+                <source srcSet={profilePicWEBP} type='image/webp' alt="Profile" />
+                <img style={{ width: 250, height: 250 }} className='profilePic center'></img>
+            </picture>
         </Col>
     );
 }
@@ -37,7 +42,9 @@ function ProfilePic() {
 function MsgMe() {
     return (
         <Col className='buttonContainer'>
+
             <Contact />
+
         </Col>
     );
 }
